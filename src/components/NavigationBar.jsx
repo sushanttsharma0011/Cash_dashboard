@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "./../assets/Logo.png";
+import { motion } from "framer-motion";
 import {
   LayoutDashboard,
   Activity,
   HelpingHand,
   CircleDollarSignIcon,
-  Clock3,
+  BanknoteIcon,
   BarChart2,
   ArrowRightLeft,
+  ChevronRight,
 } from "lucide-react";
 
 const navLinks = [
@@ -29,7 +31,7 @@ const navLinks = [
   },
   {
     name: "Income",
-    icons: Clock3,
+    icons: BanknoteIcon,
   },
   {
     name: "Analytics",
@@ -41,22 +43,55 @@ const navLinks = [
   },
 ];
 
+const variants = {
+  expanded: { width: "20%" },
+  nonExpanded: { width: "8%" },
+};
+
 function NavigationBar() {
+  const [activeNavIndex, setActiveNavIndex] = useState(0);
+  const [isExpanded, setIsExpanded] = useState(true);
+
   return (
-    <div className="px-10 py-12 flex flex-col border border-r-1 w-1/6 h-screen items-center">
+    <motion.div
+      animate={isExpanded ? "expanded" : "nonExpanded"}
+      variants={variants}
+      className="px-10 py-12 flex flex-col border border-r-1 w-1/5 h-screen items-center relative"
+    >
       <div className="logo-div flex space-x-1  items-center">
         <img src={Logo} className=" h-16" />
-        <span className=" font-bold text-xl">Capital Tracker</span>
+        <span className={isExpanded ? "block" : "hidden"}>
+          <p className=" font-bold text-xl">Capital Tracker</p>
+        </span>
       </div>
-      <div className=" mt-9 flex flex-col space-y-8">
+      <div>
+        <div
+          onClick={() => setIsExpanded(!isExpanded)}
+          className=" w-6 h-6 bg-[#FF6347] rounded-full absolute -right-3 top-[7.5vh] flex items-center justify-center hover: cursor-pointer "
+        >
+          <ChevronRight size={20} strokeWidth={3} />
+        </div>
+      </div>
+      <div className=" mt-9 flex flex-col space-y-5 hover: cursor-pointer">
         {navLinks.map((item, index) => (
-          <div key={index} className=" flex space-x-8 text-xl items-center">
-            <item.icons />
-            <span>{item?.name}</span>
+          <div
+            key={index}
+            className={
+              " flex space-x-8  items-center px-10 py-3 rounded-md" +
+              (activeNavIndex === index
+                ? " bg-[#FF6347] text-white font-semibold"
+                : " ")
+            }
+            onClick={() => setActiveNavIndex(index)}
+          >
+            <item.icons size={32} />
+            <span className={isExpanded ? "block" : "hidden"}>
+              {item?.name}
+            </span>
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
