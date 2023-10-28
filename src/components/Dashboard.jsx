@@ -22,7 +22,7 @@ function Dashboard() {
           <span>Your Balance is RS 1000000</span>
         </div>
       </div>
-      <div className=" flex">
+      <div className=" flex mb-10">
         <div className=" flex flex-col space-x-8 w-full  h-[40vh]">
           <h2 className=" mb-5 bg-[#FF6347] px-5 py-3  text-xl font-bold">
             Expenses Chart
@@ -37,9 +37,11 @@ function Dashboard() {
         </div>
       </div>
       <div>
-        <div className=" h-[150px] w-[480px] border border-gray-500 rounded flex flex-col  items-start justify-center p-4 mt-5">
-          <span>Sushant Sharma</span>
-          <span>Your Balance is RS 1000000</span>
+        <div className=" h-[150px] w-[90vh] border border-gray-500 rounded flex flex-col  items-start justify-center p-4 mt-5">
+          <h2 className=" text-xl font-bold mb-2">Activity</h2>
+          <li>You sent Rs 10000 to your mom.</li>
+          <li>You received Rs 20000 from suman singh.</li>
+          <li>You credit Rs 40000 from sarita pandey.</li>
         </div>
       </div>
     </div>

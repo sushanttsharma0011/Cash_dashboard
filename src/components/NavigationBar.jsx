@@ -56,7 +56,7 @@ function NavigationBar() {
     <motion.div
       animate={isExpanded ? "expanded" : "nonExpanded"}
       variants={variants}
-      className="px-10 py-12 flex flex-col border border-r-1 w-1/5 h-auto fixed items-center relative"
+      className="px-10 py-12 bg-gray-100 flex flex-col border border-r-1 w-1/5 h-auto fixed items-center relative"
     >
       <div className="logo-div flex space-x-1  items-center">
         <img src={Logo} className=" h-16" />
