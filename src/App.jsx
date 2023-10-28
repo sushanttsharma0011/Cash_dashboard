@@ -1,15 +1,17 @@
-import { useState } from "react";
 import NavigationBar from "./components/NavigationBar";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
     <>
-      <div>
+      <div className=" flex">
         {/* navigation bar */}
         <NavigationBar />
 
         {/* main */}
-        <main></main>
+        <main className=" flex flex-grow">
+          <Dashboard />
+        </main>
       </div>
     </>
   );
