@@ -12,6 +12,7 @@
   "dependencies": {
     "@canvasjs/react-charts": "^1.0.0",
     "chart.js": "^4.4.0",
+    "devmoji": "^2.3.0",
     "framer-motion": "^10.16.4",
     "lucide": "^0.290.0",
     "lucide-react": "^0.290.0",
